@@ -14,7 +14,7 @@ function GoogleNav() {
                             <a class="nav-link" href="/">Search <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/">Saved</a>
+                            <a class="nav-link" href="/saved">Saved</a>
                         </li>
                     </ul>
                 </div>

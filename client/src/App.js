@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import GoogleNav from "./components/GoogleNav";
 import Jumbotron from "./components/Jumbotron";
-import Search from "./pages/Search";
+import SearchForBooks from "./pages/SearchForBooks";
 import Saved from "./pages/Saved";
 import Footer from "./components/Footer";
 
@@ -14,7 +14,7 @@ function App() {
         <Jumbotron />
         <Switch>
           <Route exact path={["/"]}>
-            <Search />
+            <SearchForBooks />
           </Route>
           <Route exact path={["/saved", "/saved/:id"]}>
             <Saved />
