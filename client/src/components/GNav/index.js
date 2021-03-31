@@ -1,6 +1,6 @@
 import React from "react";
 
-function GoogleNav() {
+function GNav() {
     return (
         <div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -23,4 +23,4 @@ function GoogleNav() {
     )
 }
 
-export default GoogleNav;
+export default GNav;

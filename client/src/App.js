@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import GoogleNav from "./components/GoogleNav";
+import GNav from "./components/GNav";
 import Jumbotron from "./components/Jumbotron";
 import SearchForBooks from "./pages/SearchForBooks";
 import Saved from "./pages/Saved";
@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <div>
-        <GoogleNav />
+        <GNav />
         <Jumbotron />
         <Switch>
           <Route exact path={["/"]}>
@@ -27,3 +27,4 @@ function App() {
 }
 
 export default App;
+
