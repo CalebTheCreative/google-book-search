@@ -7,10 +7,9 @@ const SearchResults = props => {
             <h4>Results: </h4>
             {props.books.map(book => {
                 return (
-                    <div>
+                    <Container>
                         <Card>
                             <Card.Body>
-                                
                                 <Row className="searchRes" id={book.title + "Section"} key={book.id}>
                                     <Col>
                                         <Card.Img src={book.image} alt={book.title} />
@@ -25,15 +24,13 @@ const SearchResults = props => {
                                     <Button className="save mt-3" id={book.id} onClick={(evt) => props.handleSave(evt)}>
                                         Save This Book
                                     </Button>
-                                    <br />
                                     <Button href={book.link} target="_blank" rel="noopener noreferrer" className="view mt-3">
                                         View This Book
                                     </Button>
                                 </Row>
-
                             </Card.Body>
                         </Card>
-                    </div>
+                    </Container>
                 );
             })}
         </Container>
