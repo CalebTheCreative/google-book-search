@@ -18,6 +18,7 @@ A React-based app that lets users search for books using Google Books API. The u
 * Node.js
 * Axios
 * React-Router
+* Heroku
 
 ## Questions
 
