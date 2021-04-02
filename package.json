@@ -13,8 +13,8 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Caleb Hopkins",
+  "license": "MIT",
   "devDependencies": {
     "concurrently": "^6.0.0",
     "nodemon": "^1.19.4"
@@ -23,6 +23,6 @@
     "axios": "^0.21.1",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
-    "mongoose": "^5.3.16"
+    "mongoose": "^5.12.3"
   }
 }
