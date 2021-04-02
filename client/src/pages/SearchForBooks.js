@@ -8,47 +8,37 @@ import SearchResults from "../components/SearchResults";
 class SearchForBooks extends Component {
     state = {
         search: "",
-        books: [],
-        errors: ""
+        books: []
+    };
+
+    searchBooks = query => {
+        API.searchBooks(query)
+        .then(res =>
+            this.setState(
+                {
+                    books: res.data.items,
+                    search: ""
+                },
+                console.log(res.data.items)
+            )
+        ).catch(err => console.log(err.response.data));
     };
 
     handleInputChange = evt => {
-        this.setState({ search: evt.target.value })
-    }
+        const value = evt.target.value;
+        const name = evt.target.name;
+        this.setState({[name]: value});
+    };
 
     handleFormSubmit = evt => {
         evt.preventDefault();
-        API.searchGBooks(this.state.search)
-        .then(res => {
-            if (res.data.items === "error") {
-                throw new Error(res.data.items);
-            } else {
-                let searchRes = res.data.items;
-
-                searchRes = searchRes.map(result => {
-                    result = {
-                        key: result.id,
-                        id: result.id,
-                        title: result.volumeInfo.title,
-                        authors: result.volumeInfo.authors,
-                        description: result.volumeInfo.description,
-                        image: result.volumeInfo.imageLinks.thumbnail,
-                        link: result.volumeInfo.infoLink
-                    }
-                    return result;
-                })
-                this.setState({ books: searchRes, search: ""})
-            }
-        })
-        .catch(err => this.setState({ error: err.items }));
+        this.searchBooks(this.state.search);
     };
 
-    handleSave = evt => {
-        evt.preventDefault();
-        let saveBooks = this.state.books.filter(book => book.id === evt.target.id)
+    handleSave = saveBooks => {
         API.saveBook(saveBooks)
-        .then(console.log(saveBooks))
-        .catch(err => console.log(err))
+            .then(res => alert("Saved book to database!"))
+            .catch(err => console.log(err.response.data));
     };
 
     render() {
@@ -58,6 +48,7 @@ class SearchForBooks extends Component {
                     <Row>
                         <Col xs={12}>
                             <GBookSearch
+                            value={this.state.search}
                             handleFormSubmit={this.handleFormSubmit}
                             handleInputChange={this.handleInputChange}
                             />
@@ -65,7 +56,28 @@ class SearchForBooks extends Component {
                     </Row>
                 </Container>
                 <Container>
-                    <SearchResults books={this.state.books} handleSave={this.handleSave} />
+                    <Row>
+                        <h4>Results: </h4>
+                    </Row>
+                    <Row>
+                        {this.state.books.map(book => (
+                            <SearchResults
+                                key={book.id}
+                                image={book.volumeInfo.imageLinks.thumbnail}
+                                title={book.volumeInfo.title}
+                                authors={book.volumeInfo.authors.join(", ")}
+                                description={book.volumeInfo.description}
+                                link={book.volumeInfo.infoLink}
+                                handleSave={() => this.handleSave({
+                                    title: book.volumeInfo.title,
+                                    image: book.volumeInfo.imageLinks.thumbnail,
+                                    authors: book.volumeInfo.authors,
+                                    description: book.volumeInfo.description,
+                                    link: book.volumeInfo.infoLink
+                                })}
+                            />
+                        ))}
+                    </Row>
                 </Container>
             </Container>
         )

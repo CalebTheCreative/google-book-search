@@ -124,6 +124,6 @@ db.Book
     process.exit(0);
   })
   .catch(err => {
-    console.error(err);
+    console.error(err.response.data);
     process.exit(1);
   });
