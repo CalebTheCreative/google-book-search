@@ -21,7 +21,7 @@ app.get("*", (req, res) => {
 });
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gbooks");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/gbooks", { useNewUrlParser: true });
 
 // Start the API server
 app.listen(PORT, function() {
