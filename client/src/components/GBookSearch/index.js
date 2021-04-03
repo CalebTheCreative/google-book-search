@@ -17,7 +17,7 @@ const GBookSearch = props => {
                 />
                     
             </div>
-            <Button variant="danger" type="submit" className="submitBtn btn-danger" onClick={props.handleFormSubmit}>
+            <Button variant="primary" type="submit" className="submitBtn" onClick={props.handleFormSubmit}>
                 <b>Submit</b>
             </Button>
             <br />
