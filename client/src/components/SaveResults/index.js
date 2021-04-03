@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Container, Button, Col, Row } from "react-bootstrap";
+import "./style.css";
 
 const SaveResults = props => {
     return (
@@ -8,7 +9,7 @@ const SaveResults = props => {
                 <Card>
                     <Card.Body>
                         <Row className="searchRes" id={props.title + "Section"}>
-                            <Col>
+                            <Col xs={3}>
                                 <Card.Img src={props.image} alt={props.title} />
                             </Col>
                             <Col>
@@ -18,13 +19,14 @@ const SaveResults = props => {
                             </Col>
                         </Row>
                         <Row>
-                            <Button className="save mt-3" onClick={props.handleDelete}>
-                                Remove This Book
-                            </Button>
-                            <br />
-                            <Button href={props.link} target="_blank" rel="noopener noreferrer" className="view mt-3">
-                                View This Book
-                            </Button>
+                            <Col xs={3} className="justify-content-center text-center">
+                                <Button className="save mt-2 mx-1" onClick={props.handleDelete}>
+                                    <b>Remove</b>
+                                </Button>
+                                <Button href={props.link} variant="secondary" target="_blank" rel="noopener noreferrer" className="view mt-2 mx-1">
+                                    <b>View</b>
+                                </Button>
+                            </Col>
                         </Row>
 
                     </Card.Body>

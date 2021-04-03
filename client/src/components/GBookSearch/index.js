@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 
 const GBookSearch = props => {
     return (
@@ -16,9 +17,10 @@ const GBookSearch = props => {
                 />
                     
             </div>
-            <button type="submit" className="submitBtn btn-danger" onClick={props.handleFormSubmit}>
-                Submit
-            </button>
+            <Button variant="danger" type="submit" className="submitBtn btn-danger" onClick={props.handleFormSubmit}>
+                <b>Submit</b>
+            </Button>
+            <br />
         </form>
     )
 }

@@ -32,6 +32,7 @@ class Saved extends Component {
                 <Row>
                     <h4>Results: </h4>
                 </Row>
+                <br />
                 <Row>
                     <Col>
                         {this.state.saveBooks.map(book => (

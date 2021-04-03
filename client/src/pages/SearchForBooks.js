@@ -55,6 +55,7 @@ class SearchForBooks extends Component {
                         </Col>
                     </Row>
                 </Container>
+                <br />
                 <Container>
                     <Row>
                         <h4>Results: </h4>
